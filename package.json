@@ -4,7 +4,8 @@
   "description": "simple algorithms",
   "main": "src/main.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+    "main": "babel-node src\\main.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,8 @@
     "presets": [
       "es2015",
       "stage-2"
-    ]
+    ],
+    "sourceMaps": true,
+    "retainLines": true
   }
 }
