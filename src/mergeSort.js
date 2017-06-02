@@ -1,12 +1,7 @@
 'use strict'
 
 
-const mergeSortRecursive = (list) => {
-    //minor hack: method should modify an existing list ref
-    list.splice(0, list.length, ...split(list)); //send the array as multiple parameters
-}
-
-const split = (list) => {
+const mergeSort = (list) => {
     if (list.length < 2) {
         return list;
     }
@@ -17,7 +12,7 @@ const split = (list) => {
     const right = list.slice(middle, list.length);
 
     //merge the 2 halfs in a sorting fashion
-    return merge(split(left), split(right));
+    return merge(mergeSort(left), mergeSort(right));
 }
 
 const merge = (left, right) => {
@@ -48,4 +43,4 @@ const merge = (left, right) => {
     return result;
 }
 
-export default mergeSortRecursive;
+export default mergeSort;

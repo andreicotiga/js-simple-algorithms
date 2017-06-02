@@ -1,13 +1,12 @@
 'use strict';
 
 const bubbleSort = (list) => {
-    //tells us if we need to repeat the operation
-    let doItAgain = false;
-
-    //when empty or single element list just return
     if (list.length < 2) {
         return list;
     }
+
+    //tells us if we need to repeat the operation
+    let doItAgain = false;
 
     do {
         doItAgain = false;
