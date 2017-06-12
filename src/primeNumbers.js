@@ -5,7 +5,7 @@ const primeNumbers = (limit) => {
     let grid = {};
     
     //mark all the numbers as prime
-    for (let i = 0; i < limit; i++) {
+    for (let i = 2; i < limit; i++) {
         grid[i] = { marked: false };
     }
 
@@ -18,7 +18,7 @@ const primeNumbers = (limit) => {
 
     //final result will consist of numbers that have marked: false
     let result = [];
-    for (let i = 0; i < limit; i++) {
+    for (let i = 2; i < limit; i++) {
         if (!grid[i].marked) {
             result.push(i);
         }
