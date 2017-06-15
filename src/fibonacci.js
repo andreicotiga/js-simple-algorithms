@@ -1,14 +1,18 @@
 'use strict'
 
 const fibonacci = (position) => {
-    let initial = [0, 1]
+    var cache = [0, 1];
 
     if (position < 2) {
-        return initial[position];
+        return cache[position];
     }
-    else {
-        return fibonacci(position - 1) + fibonacci(position - 2);
+
+    for (var i = 2; i <= position; i++) {
+        cache.push(cache[i - 1] + cache[i - 2]);
     }
+
+    return cache[position];
 }
 
 export default fibonacci;
+
