@@ -1,6 +1,6 @@
 const iterate = (graph, vertices, costs) => {
 
-    //in case a shorter path is found do it again
+    //in case a shorter path is found return a flag saying it should call iterate again
     let doItAgain = false;
 
     for (let currentVertex of vertices) {
@@ -10,7 +10,7 @@ const iterate = (graph, vertices, costs) => {
             return path.from === currentVertex;
         });
 
-        //calculate the new cost
+        //calculate the new costs as the sum of the 'from' vertex and the connecting edge between the 2 vertices 
         for (var currentEdge of currentEdges) {
             const newCost = costs[currentEdge.from] + currentEdge.cost;
 
@@ -25,15 +25,24 @@ const iterate = (graph, vertices, costs) => {
     return doItAgain;
 }
 
-const bellmanFord = (graph, fromVertex) => {
+//Example of how a graph structure will look like     
+//  [
+//     { from: "A", to: "C", cost: 6 },
+//     { from: "B", to: "A", cost: 3 },
+//     { from: "C", to: "B", cost: -2 },
+//     { from: "D", to: "C", cost: 3 },
+//     { from: "D", to: "A", cost: 10 },
+//  ]
+const bellmanFord = (graph, targetVertex) => {
 
     //construct the array of vertices (e.g. [A,B,C,D])
-    let vertices = [fromVertex];
+    let vertices = [targetVertex];
 
     //construct the costs dictionary 
-    //initially the cost from the target vertex (A) to itself will be zero, while to the rest of the vertices it will be maximum possible (e.g. {A: 0, B: Infinity, C: Infinity, D: Infinity})
+    //initially the cost from the target vertex to itself will be zero, 
+    //while to the rest of the vertices it will be maximum possible (e.g. if A is the target vertex the dictionary will look like {A: 0, B: Infinity, C: Infinity, D: Infinity})
     let costs = {};
-    costs[fromVertex] = 0;
+    costs[targetVertex] = 0;
 
     for (var path of graph) {
         if (vertices.lastIndexOf(path.from) < 0) {
@@ -50,9 +59,8 @@ const bellmanFord = (graph, fromVertex) => {
         }
     }
 
-    //return the costs, that will contain the minumum path
+    //return the costs dictionary, that will contain the minumum path from the targer vertex to all other vertices
     return costs;
-
 }
 
 export default bellmanFord;
