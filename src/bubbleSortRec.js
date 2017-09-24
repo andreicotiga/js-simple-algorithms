@@ -1,6 +1,6 @@
 'use strict'
 
-//sorts a list using the 'Bubble Sort' algorithm
+//sorts a list using the 'Bubble Sort' algorithm, recursively
 const bubbleSortRec = (list) => {
     if (list.length < 2) {
         return list;

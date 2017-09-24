@@ -1,11 +1,40 @@
+'use strict'
+
+//calculates the shortest path from a vertex 'targetVertex' to all other vertices in the graph using the 'Dijkstra' algorithm
+//the graph structure must look the this:  
+//  [
+//     { from: "A", to: "C", cost: 6 },
+//     { from: "B", to: "A", cost: 3 },
+//     { from: "C", to: "B", cost: -2 },
+//     { from: "D", to: "C", cost: 3 },
+//     { from: "D", to: "A", cost: 10 },
+//  ]
+const dijkstra = (graph, targetVertex) => {
+    //construct the array of vertices (e.g. [A,B,C,D])
+    let vertices = [targetVertex];
+
+    for (var path of graph) {
+        if (vertices.lastIndexOf(path.from) < 0) {
+            vertices.push(path.from);
+        }
+    }
+
+    //construct the memo table
+    let memo = new MemoTable(vertices, targetVertex);
+
+    //process recursively the graph
+    process(graph, memo, targetVertex);
+
+    return memo.getCosts();
+}
+
 class MemoTable {
 
     constructor(vertices, targetVertex) {
-        //the cost from the target vertex to itself is 0
+        //the cost from the 'targetVertex' to itself is 0
         let target = { name: targetVertex, cost: 0, visited: false };
 
-        //create the costs table
-        //set the cost for all other vertices excep the target to infinity
+        //the cost from the 'targetVertex' to other vertices is infinity
         this.table = [target];
         for (let vertex of vertices) {
             if (vertex !== target.name) {
@@ -81,7 +110,7 @@ class MemoTable {
 
 const process = (graph, memo, targetVertex) => {
 
-    //get the outgoing edges from the target vertex
+    //get the outgoing edges from the 'targetVertex'
     const edges = graph.filter(path => { return path.from === targetVertex });
 
     //calculate the new cost for outgoing edges
@@ -89,7 +118,7 @@ const process = (graph, memo, targetVertex) => {
         let fromVertexCost = memo.getCost(edge.from);
         let toVertexCost = memo.getCost(edge.to);
 
-        //the new cost will be the from vertex computed cost summed to the graph edge cost
+        //the new cost will be the 'fromVertex' computed cost summed to the graph edge cost
         let newCost = fromVertexCost + edge.cost;
 
         //if the new cost is lower than what we have computed so far, updated the computed value with the new cost
@@ -106,34 +135,6 @@ const process = (graph, memo, targetVertex) => {
     if (next) {
         process(graph, memo, next.name);
     }
-}
-
-
-//Example of how a graph structure will look like     
-//  [
-//     { from: "A", to: "C", cost: 6 },
-//     { from: "B", to: "A", cost: 3 },
-//     { from: "C", to: "B", cost: -2 },
-//     { from: "D", to: "C", cost: 3 },
-//     { from: "D", to: "A", cost: 10 },
-//  ]
-const dijkstra = (graph, targetVertex) => {
-    //construct the array of vertices (e.g. [A,B,C,D])
-    let vertices = [targetVertex];
-
-    for (var path of graph) {
-        if (vertices.lastIndexOf(path.from) < 0) {
-            vertices.push(path.from);
-        }
-    }
-
-    //construct the memo table
-    let memo = new MemoTable(vertices, targetVertex);
-
-    //process recursively the graph
-    process(graph, memo, targetVertex);
-
-    return memo.getCosts();
 }
 
 export default dijkstra;

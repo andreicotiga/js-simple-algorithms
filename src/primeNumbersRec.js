@@ -16,20 +16,7 @@ Array.prototype.tail = function () {
     return null;
 }
 
-const recureIn = (list, fn) => {
-
-    let head = list.head();
-    let tail = list.tail();
-
-    if (head && fn) {
-        fn(head);
-    }
-
-    if (tail && fn) {
-        recureIn(tail, fn);
-    }
-}
-
+//finds all prime numbers from 2 to 'limit', recursively
 const primeNumbersRec = (limit) => {
 
     let list = [];
@@ -50,7 +37,7 @@ const primeNumbersRec = (limit) => {
 
     var result = [];
 
-    //values that are still prime will be our result
+    //final result will consist of numbers that are marked as prime
     recureIn(list, function (val) {
         if (val.isPrime) {
             result.push(val.index);
@@ -58,6 +45,20 @@ const primeNumbersRec = (limit) => {
     });
 
     return result;
+}
+
+const recureIn = (list, fn) => {
+
+    let head = list.head();
+    let tail = list.tail();
+
+    if (head && fn) {
+        fn(head);
+    }
+
+    if (tail && fn) {
+        recureIn(tail, fn);
+    }
 }
 
 export default primeNumbersRec;

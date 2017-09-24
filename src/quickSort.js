@@ -1,5 +1,6 @@
 'use strict'
 
+//sorts a list using the 'Quick Sort' algorithm
 const quickSort = (list) => {
     
     if (list.length < 2) {
@@ -9,7 +10,7 @@ const quickSort = (list) => {
     let left = [], right = [];
 
     //chose a pivot as the last element in the list
-    //Note: for optimal performance - always O(N) - the pivot should be the median
+    //Note: for optimal performance (always O(N)) the pivot should be the median
     const pivotIndex = list.length - 1; 
     const pivotValue = list[pivotIndex];
 
