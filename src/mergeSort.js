@@ -1,6 +1,6 @@
 'use strict'
 
-//sorts a list using the 'Merge Sort' algorithm
+//sorts a list using the 'Merge-Sort' algorithm
 const mergeSort = (list) => {
     if (list.length < 2) {
         return list;

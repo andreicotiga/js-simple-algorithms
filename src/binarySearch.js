@@ -1,6 +1,7 @@
 'use strict'
 
-//asumes the list is sorted asc
+//searches a list for the 'lookFor' value using the 'Binary Search' algorithm
+//the list must be sorted asc
 const binarySearch = (sortedList, lookFor) => {
     let minIndex = 0, maxIndex = sortedList.length;
 

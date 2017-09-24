@@ -1,6 +1,6 @@
 'use strict'
 
-//gets the list of prime numbers from 2 to 'limit'
+//finds all prime numbers from 2 to 'limit'
 const primeNumbers = (limit) => {
 
     let grid = {};
@@ -10,7 +10,7 @@ const primeNumbers = (limit) => {
         grid[i] = { isPrime: true };
     }
 
-    //mark multipliers as not prime
+    //mark multiples as not prime
     for (let i = 2; i < Math.sqrt(limit); i++) {
         for (let x = 2 * i; x < limit; x += i) {
             grid[x].isPrime = false;
