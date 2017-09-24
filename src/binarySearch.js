@@ -1,17 +1,21 @@
 'use strict'
 
-const binarySearch = (list, lookFor) => {
-    let minIndex = 0, maxIndex = list.length;
+//asumes the list is sorted asc
+const binarySearch = (sortedList, lookFor) => {
+    let minIndex = 0, maxIndex = sortedList.length;
 
     while (minIndex <= maxIndex) {
         
+        //calculate the middle element
         let middleIndex = Math.floor((minIndex + maxIndex) / 2);
 
-        if (list[middleIndex] === lookFor) {
+        //if it's the value we are looking for, return it
+        if (sortedList[middleIndex] === lookFor) {
             return middleIndex;
         }
         else {
-            if (list[middleIndex] < lookFor) { 
+            //if the value we are looking for is greater than the middle, look after the middle index, otherwise look at the elements before the middle index
+            if (sortedList[middleIndex] < lookFor) { 
                 minIndex = middleIndex + 1; 
             } else { 
                 maxIndex = middleIndex - 1; 
