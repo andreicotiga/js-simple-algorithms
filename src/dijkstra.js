@@ -1,7 +1,7 @@
 'use strict'
 
 //calculates the shortest path from a vertex 'targetVertex' to all other vertices in the graph using the 'Dijkstra' algorithm
-//the graph structure must look the this:  
+//the input graph must have below structure:  
 //  [
 //     { from: "A", to: "C", cost: 6 },
 //     { from: "B", to: "A", cost: 3 },
@@ -9,6 +9,7 @@
 //     { from: "D", to: "C", cost: 3 },
 //     { from: "D", to: "A", cost: 10 },
 //  ]
+//the input 'targetVertex' is the name of the vertex (e.g. A)
 const dijkstra = (graph, targetVertex) => {
     //construct the array of vertices (e.g. [A,B,C,D])
     let vertices = [targetVertex];

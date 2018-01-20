@@ -6,7 +6,7 @@ import dijkstra from '../src/dijkstra'
 let expect = chai.expect;
 
 describe('Dijkstra', () => {
-    it('calculates correct shortest paths from vertex S', () => {
+    it('calculates correct shortest paths starting from vertex S', () => {
         const graph = [
             { from: "S", to: "A", cost: 4 },
             { from: "S", to: "E", cost: 2 },

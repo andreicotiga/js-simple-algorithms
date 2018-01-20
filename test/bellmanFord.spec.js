@@ -6,7 +6,7 @@ import bellmanFord from '../src/bellmanFord'
 let expect = chai.expect;
 
 describe('Bellman-Ford', () => {
-    it('calculates correct shortest paths from vertex S', () => {
+    it('calculates correct shortest paths starting from vertex S', () => {
         let graph = [
             { from: "S", to: "A", cost: 4 },
             { from: "S", to: "E", cost: -5 },

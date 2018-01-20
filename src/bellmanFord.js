@@ -1,7 +1,7 @@
 'use strict'
 
 //calculates the shortest path from a vertex 'targetVertex' to all other vertices in the 'graph' using the 'Bellman-Ford' algorithm
-//the input graph structure must have the below structure:
+//the input graph must have the below structure:
 //  [
 //     { from: "A", to: "C", cost: 6 },
 //     { from: "B", to: "A", cost: 3 },
