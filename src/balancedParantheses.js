@@ -7,7 +7,7 @@ const balancedParantheses = (input) => {
 		['{', '}'],
 		['[', ']']
 	]);
-	let found = [];
+	let openParanthesesFound = [];
 
 	let open = Array.from(parantheses.keys());
 	let close = Array.from(parantheses.values());
@@ -15,12 +15,12 @@ const balancedParantheses = (input) => {
 	for (let c of input) {
 
 		if (open.indexOf(c) >= 0) {
-			found.push(c);
+			openParanthesesFound.push(c);
 		} else {
 			if (close.indexOf(c) >= 0) {
 
-				if (found.length > 0 && parantheses.get(found[found.length - 1]) === c) {
-					found.pop();
+				if (openParanthesesFound.length > 0 && parantheses.get(openParanthesesFound[openParanthesesFound.length - 1]) === c) {
+					openParanthesesFound.pop();
 				} else {
 					return false;
 				}
@@ -28,7 +28,7 @@ const balancedParantheses = (input) => {
 		}
 	}
 
-	return found.length == 0;
+	return openParanthesesFound.length == 0;
 }
 
 export default balancedParantheses;
