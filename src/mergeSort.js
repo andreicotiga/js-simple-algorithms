@@ -21,7 +21,7 @@ const merge = (left, right) => {
 
     while (left.length || right.length) {
         if (left.length && right.length) {
-            //push into result the min element at index 0
+            //push to result the min element at index 0
             if (left[0] < right[0]) {
                 result.push(left.shift());
             }
