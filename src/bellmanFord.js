@@ -9,7 +9,7 @@
 //     { from: "D", to: "C", cost: 3 },
 //     { from: "D", to: "A", cost: 10 },
 //  ]
-//the input 'targetVertex' is the name of the vertex (e.g. D)
+//the input 'targetVertex' is the name of the vertex (e.g. A)
 const bellmanFord = (graph, targetVertex) => {
     
         //construct the array of vertices (e.g. [A,B,C,D])
@@ -30,7 +30,7 @@ const bellmanFord = (graph, targetVertex) => {
         }
     
         //calculate the minimum path from each vertex to other vertices
-        //the calculation keeps happening while no more shorter paths are found
+        //the calculation keeps happening until no more shorter paths are found
         for (let vertex of vertices) {
             if (!iterate(graph, vertices, costs)) {
                 break;
