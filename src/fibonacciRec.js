@@ -1,6 +1,6 @@
 'use strict'
 
-//calculates the Fibonacci number at 'position' recursively
+//calculates the Fibonacci number at the specified 'position' recursively
 const fibonacciRec = (position) => {
     let initial = [0, 1]
 
