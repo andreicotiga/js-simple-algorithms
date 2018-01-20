@@ -1,6 +1,6 @@
 'use strict'
 
-//calculates the Fibonacci number at position 'position'
+//calculates the Fibonacci number at the specified 'position'
 const fibonacci = (position) => {
     var cache = [0, 1];
 
