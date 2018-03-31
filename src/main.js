@@ -1,1 +1,1 @@
-console.log("rin order to test the algorithms run 'npm test' ")
+console.log("in order to test the algorithms run 'npm test'")
