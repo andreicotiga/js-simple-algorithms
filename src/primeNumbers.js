@@ -1,26 +1,21 @@
 'use strict'
 
-//finds all prime numbers from 2 to 'limit'
+//finds all prime numbers between 2 to 'limit'
 const primeNumbers = (limit) => {
 
-    let grid = {};
-    
-    //mark all the numbers as prime
-    for (let i = 2; i < limit; i++) {
-        grid[i] = { isPrime: true };
-    }
+    let notPrimes = new Map();
 
-    //mark multiples as not prime
+    //mark multiples as not primes
     for (let i = 2; i < Math.sqrt(limit); i++) {
         for (let x = 2 * i; x < limit; x += i) {
-            grid[x].isPrime = false;
+            notPrimes.set(x, false);
         }
     }
 
-    //final result will consist of numbers that are marked as prime
+    //result will consist of numbers that were not marked as not primes
     let result = [];
     for (let i = 2; i < limit; i++) {
-        if (grid[i].isPrime) {
+        if (!notPrimes.has(i)) {
             result.push(i);
         }
     }

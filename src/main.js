@@ -1,2 +1,1 @@
-
-console.log ("running...")
+console.log("rin order to test the algorithms run 'npm test' ")

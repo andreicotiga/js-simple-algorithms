@@ -1,6 +1,6 @@
 'use strict'
 
-//sorts a list using the 'Merge-Sort' algorithm
+//sorts a list ascending using the 'Merge-Sort' algorithm
 const mergeSort = (list) => {
     if (list.length < 2) {
         return list;
@@ -24,16 +24,13 @@ const merge = (left, right) => {
             //push to result the min element at index 0
             if (left[0] < right[0]) {
                 result.push(left.shift());
-            }
-            else {
+            } else {
                 result.push(right.shift())
             }
-        }
-        else if (left.length) {
+        } else if (left.length) {
             //only left has elements so push all of them
             result.push(left.shift());
-        }
-        else {
+        } else {
             //only right has elements so push all of them
             result.push(right.shift());
         }

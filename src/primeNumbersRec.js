@@ -16,14 +16,17 @@ Array.prototype.tail = function () {
     return null;
 }
 
-//finds all prime numbers from 2 to 'limit', recursively
+//finds all prime numbers between 2 and 'limit', recursively
 const primeNumbersRec = (limit) => {
 
     let list = [];
 
     //mark all as prime
     for (var i = 2; i < limit; i++) {
-        list[i] = { index: i, isPrime: true };
+        list[i] = {
+            index: i,
+            isPrime: true
+        };
     }
 
     //mark multiples as not prime
