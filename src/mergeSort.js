@@ -29,10 +29,12 @@ const merge = (left, right) => {
             }
         } else if (left.length) {
             //only left has elements so push all of them
-            result.push(left.shift());
+            result.push(...left);
+            left = [];
         } else {
             //only right has elements so push all of them
-            result.push(right.shift());
+            result.push(...right);
+            right = [];
         }
     }
 
