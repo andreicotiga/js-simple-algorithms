@@ -1,10 +1,16 @@
 'use strict'
 
-//sorts a list ascending using the 'Selection Sort' algorithm
+// SelectionSort sorts a list ascending using the 'Selection Sort' algorithm
+
 const selectionSort = (list) => {
+
+    if (!list) {
+        throw "Invalid list"
+    }
+
     for (let i = 0; i < list.length - 1; i++) {
-        
-        let minIndex =i;
+
+        let minIndex = i;
 
         for (let j = i + 1; j < list.length; j++) {
             if (list[j] < list[minIndex]) {
@@ -12,7 +18,7 @@ const selectionSort = (list) => {
             }
         }
 
-        if (i !== minIndex){
+        if (i !== minIndex) {
             [list[i], list[minIndex]] = [list[minIndex], list[i]] //swap
         }
     }
