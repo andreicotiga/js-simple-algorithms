@@ -1,7 +1,6 @@
 'use strict'
 
-// SelectionSort sorts a list ascending using the 'Selection Sort' algorithm
-
+//The function sorts a list ascending using the 'Selection Sort' algorithm
 const selectionSort = (list) => {
 
     if (!list) {

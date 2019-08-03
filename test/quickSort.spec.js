@@ -3,12 +3,12 @@ import quickSort from '../src/quickSort'
 
 let expect = chai.expect;
 
-describe('Quick Sort', () => {
+describe('quickSort', () => {
     it('should sort multiple element list', () => {
         let list = [23, 4, 42, 15, 16, 8];
 
         list = quickSort(list);
-        
+
         expect(list).to.deep.equal([4, 8, 15, 16, 23, 42]);
     })
 

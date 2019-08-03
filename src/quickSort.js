@@ -1,6 +1,6 @@
 'use strict'
 
-//sorts a list ascending using the 'Quick Sort' algorithm
+//The function sorts a list ascending using the 'Quick Sort' algorithm
 const quickSort = (list) => {
 
     if (list.length < 2) {

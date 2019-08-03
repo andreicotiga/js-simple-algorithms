@@ -3,7 +3,7 @@ import binarySearch from '../src/binarySearch'
 
 let expect = chai.expect;
 
-describe("Binary Search", () => {
+describe("binarySearch", () => {
     it("should return index of value in multiple element list", () => {
         var list = [4, 8, 15, 16, 23, 42];
 
