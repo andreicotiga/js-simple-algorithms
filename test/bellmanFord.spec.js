@@ -1,7 +1,7 @@
 'use strict'
 
 import chai from 'chai'
-import bellmanFord from '../src/bellmanFord'
+import computeBellmanFord from '../src/bellmanFord'
 
 let expect = chai.expect;
 const graph = [{
@@ -46,9 +46,9 @@ const graph = [{
     }
 ];
 
-describe('bellmanFord', () => {
+describe('computeBellmanFord', () => {
     it('computes the correct shortest paths', () => {
-        let shortestPaths = bellmanFord(graph, "S");
+        let shortestPaths = computeBellmanFord(graph, "S");
 
         expect(shortestPaths).to.deep.equal({
             S: 0,
@@ -61,10 +61,10 @@ describe('bellmanFord', () => {
     });
 
     it('throws for null graph', () => {
-        expect(bellmanFord.bind(null, null, "S")).to.throw('Invalid graph');
+        expect(computeBellmanFord.bind(null, null, "S")).to.throw('Invalid graph');
     });
 
     it('throws for null target vertex', () => {
-        expect(bellmanFord.bind(null, graph, null)).to.throw('Invalid targetVertex');
+        expect(computeBellmanFord.bind(null, graph, null)).to.throw('Invalid targetVertex');
     });
 });

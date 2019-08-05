@@ -1,7 +1,7 @@
 'use strict'
 
 //The function finds all prime numbers between 2 and 'limit' (limit excluded)
-export const primeNumbers = (limit) => {
+export const findPrimeNumbers = (limit) => {
 
     let searchLimit = Math.sqrt(limit);
     if (searchLimit < 2) {
@@ -46,7 +46,7 @@ Array.prototype.tail = function () {
 }
 
 //The function finds all prime numbers between 2 and 'limit' recursively (limit excluded)
-export const primeNumbersRecursive = (limit) => {
+export const findPrimeNumbersRecursive = (limit) => {
 
     let list = [];
 

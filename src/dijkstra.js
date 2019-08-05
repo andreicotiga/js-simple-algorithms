@@ -10,7 +10,7 @@
 //     { from: "D", to: "A", cost: 10 },
 //  ]
 //The 'targetVertex' argument is the name of the vertex (e.g. A)
-const dijkstra = (graph, targetVertex) => {
+const computeDijkstra = (graph, targetVertex) => {
 
     if (!graph) {
         throw "Invalid graph"
@@ -158,4 +158,4 @@ const process = (graph, memo, targetVertex) => {
     }
 }
 
-export default dijkstra;
+export default computeDijkstra;

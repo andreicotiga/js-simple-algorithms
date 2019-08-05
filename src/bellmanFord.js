@@ -10,7 +10,7 @@
 //     { from: "D", to: "A", cost: 10 },
 //  ]
 //The 'targetVertex' argument is the name of the vertex (e.g. A)
-const bellmanFord = (graph, targetVertex) => {
+const computeBellmanFord = (graph, targetVertex) => {
 
     if (!graph) {
         throw "Invalid graph"
@@ -76,4 +76,4 @@ const iterate = (graph, vertices, costs) => {
     return doItAgain;
 }
 
-export default bellmanFord;
+export default computeBellmanFord;

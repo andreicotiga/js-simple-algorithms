@@ -1,7 +1,7 @@
 'use strict'
 
 import chai from 'chai'
-import dijkstra from '../src/dijkstra'
+import computeDijkstra from '../src/dijkstra'
 
 let expect = chai.expect;
 const graph = [{
@@ -56,10 +56,10 @@ const graph = [{
     }
 ];
 
-describe('dijkstra', () => {
+describe('computeDijkstra', () => {
     it('computes shortest paths starting from vertex S', () => {
 
-        let shortestPaths = dijkstra(graph, "S");
+        let shortestPaths = computeDijkstra(graph, "S");
 
         expect(shortestPaths).to.deep.equal([{
                 name: 'S',
@@ -89,11 +89,11 @@ describe('dijkstra', () => {
     });
 
     it('throws for null graph', () => {
-        expect(dijkstra.bind(null, null, "S")).to.throw('Invalid graph');
+        expect(computeDijkstra.bind(null, null, "S")).to.throw('Invalid graph');
     });
 
     it('throws for null target vertex', () => {
-        expect(dijkstra.bind(null, graph, null)).to.throw('Invalid targetVertex');
+        expect(computeDijkstra.bind(null, graph, null)).to.throw('Invalid targetVertex');
     });
 
 });
