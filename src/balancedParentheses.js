@@ -6,7 +6,6 @@
 // - the pairs of parentheses are properly nested. 
 // Example: "[(2 + 3) * 5 -7] % 2" is a string containing balanced parentheses
 // 	        "{a -7 * [2 +3)}" is a string that does not contain balanced parentheses
-
 const hasBalancedParentheses = (input) => {
 
 	if (!input) {

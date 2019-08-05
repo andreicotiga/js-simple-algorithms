@@ -3,8 +3,8 @@ import mergeSort from '../src/mergeSort'
 
 let expect = chai.expect;
 
-describe('Merge Sort', () => {
-    it('should sort multiple element list', () => {
+describe('mergeSort', () => {
+    it('sorts list', () => {
         let list = [23, 4, 42, 15, 16, 8];
 
         list = mergeSort(list);
@@ -12,7 +12,7 @@ describe('Merge Sort', () => {
         expect(list).to.deep.equal([4, 8, 15, 16, 23, 42]);
     })
 
-    it('should sort multiple element list with duplicates', () => {
+    it('sorts list with duplicate elements', () => {
         let list = [23, 4, 42, 15, 16, 8, 23, 4];
 
         list = mergeSort(list);
@@ -20,7 +20,7 @@ describe('Merge Sort', () => {
         expect(list).to.deep.equal([4, 4, 8, 15, 16, 23, 23, 42]);
     })
 
-    it('should sort already sorted list', () => {
+    it('sorts an already sorted list', () => {
         let list = [4, 8, 15, 16, 23, 42];
 
         list = mergeSort(list);
@@ -28,15 +28,7 @@ describe('Merge Sort', () => {
         expect(list).to.deep.equal([4, 8, 15, 16, 23, 42]);
     })
 
-    it('should sort two element list', () => {
-        let list = [2, 1];
-
-        list = mergeSort(list);
-
-        expect(list).to.deep.equal([1, 2]);
-    })
-
-    it('should sort one element list', () => {
+    it('should sorts an 1-element list', () => {
         let list = [5];
 
         list = mergeSort(list);
@@ -50,5 +42,9 @@ describe('Merge Sort', () => {
         list = mergeSort(list);
 
         expect(list).to.deep.equal([]);
+    })
+
+    it('throws for null list', () => {
+        expect(mergeSort.bind(null, null)).to.throw('Invalid list');
     })
 });

@@ -1,19 +1,35 @@
 'use strict'
 
-//calculates the Fibonacci number at the specified 'position'
-const fibonacci = (position) => {
-    var cache = [0, 1];
+const initial = [0, 1];
+
+//The function computes the Fibonacci number at the specified position in the Fibonacci sequence
+export const fibonacci = (position) => {
+
+    if (position < 0) {
+        throw "Invalid position"
+    }
 
     if (position < 2) {
-        return cache[position];
+        return initial[position];
     }
 
     for (var i = 2; i <= position; i++) {
-        cache.push(cache[i - 1] + cache[i - 2]);
+        initial.push(initial[i - 1] + initial[i - 2]);
     }
 
-    return cache[position];
+    return initial[position];
 }
 
-export default fibonacci;
+//The function computes the Fibonacci number at the specified position in the Fibonacci sequence recursively
+export const fibonacciRecursive = (position) => {
 
+    if (position < 0) {
+        throw "Invalid position"
+    }
+
+    if (position < 2) {
+        return initial[position];
+    } else {
+        return fibonacciRecursive(position - 1) + fibonacciRecursive(position - 2);
+    }
+}

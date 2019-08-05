@@ -1,23 +1,23 @@
 import chai from 'chai'
 import {
-    bubbleSort
+    bubbleSortRecursive
 } from '../src/bubbleSort'
 
 let expect = chai.expect;
 
-describe('bubbleSort', () => {
+describe('bubbleSortRecursive', () => {
     it('sorts list', () => {
-        let list = [23, 4, 42, 15, 16, 8];
+        let list = [9, 99, 8, 1, 25, 9, 67];
 
-        bubbleSort(list);
+        bubbleSortRecursive(list);
 
-        expect(list).to.deep.equal([4, 8, 15, 16, 23, 42]);
+        expect(list).to.deep.equal([1, 8, 9, 9, 25, 67, 99]);
     })
 
-    it('sort list with duplicate elements', () => {
+    it('sorts list with duplicate elements', () => {
         let list = [23, 4, 42, 15, 16, 8, 23, 4];
 
-        bubbleSort(list);
+        bubbleSortRecursive(list);
 
         expect(list).to.deep.equal([4, 4, 8, 15, 16, 23, 23, 42]);
     })
@@ -25,28 +25,28 @@ describe('bubbleSort', () => {
     it('sorts already sorted list', () => {
         let list = [4, 8, 15, 16, 23, 42];
 
-        bubbleSort(list);
+        bubbleSortRecursive(list);
 
         expect(list).to.deep.equal([4, 8, 15, 16, 23, 42]);
     })
 
     it('sorts 1-element list', () => {
-        let list = [5];
+        let list = [100];
 
-        bubbleSort(list);
+        bubbleSortRecursive(list);
 
-        expect(list).to.deep.equal([5]);
+        expect(list).to.deep.equal([100]);
     })
 
     it('sorts empty list', () => {
         let list = [];
 
-        bubbleSort(list);
+        bubbleSortRecursive(list);
 
         expect(list).to.deep.equal([]);
     })
 
     it('throws for null list', () => {
-        expect(bubbleSort.bind(null, null)).to.throw('Invalid list');
+        expect(bubbleSortRecursive.bind(null, null)).to.throw('Invalid list');
     })
 });

@@ -4,51 +4,50 @@ import chai from 'chai'
 import bellmanFord from '../src/bellmanFord'
 
 let expect = chai.expect;
+const graph = [{
+        from: "S",
+        to: "A",
+        cost: 4
+    },
+    {
+        from: "S",
+        to: "E",
+        cost: -5
+    },
+    {
+        from: "A",
+        to: "C",
+        cost: 6
+    },
+    {
+        from: "B",
+        to: "A",
+        cost: 3
+    },
+    {
+        from: "C",
+        to: "B",
+        cost: -2
+    },
+    {
+        from: "D",
+        to: "C",
+        cost: 3
+    },
+    {
+        from: "D",
+        to: "A",
+        cost: 10
+    },
+    {
+        from: "E",
+        to: "D",
+        cost: 8
+    }
+];
 
 describe('bellmanFord', () => {
     it('computes the correct shortest paths', () => {
-        let graph = [{
-                from: "S",
-                to: "A",
-                cost: 4
-            },
-            {
-                from: "S",
-                to: "E",
-                cost: -5
-            },
-            {
-                from: "A",
-                to: "C",
-                cost: 6
-            },
-            {
-                from: "B",
-                to: "A",
-                cost: 3
-            },
-            {
-                from: "C",
-                to: "B",
-                cost: -2
-            },
-            {
-                from: "D",
-                to: "C",
-                cost: 3
-            },
-            {
-                from: "D",
-                to: "A",
-                cost: 10
-            },
-            {
-                from: "E",
-                to: "D",
-                cost: 8
-            }
-        ];
-
         let shortestPaths = bellmanFord(graph, "S");
 
         expect(shortestPaths).to.deep.equal({
@@ -61,4 +60,11 @@ describe('bellmanFord', () => {
         });
     });
 
+    it('throws for null graph', () => {
+        expect(bellmanFord.bind(null, null, "S")).to.throw('Invalid graph');
+    });
+
+    it('throws for null target vertex', () => {
+        expect(bellmanFord.bind(null, graph, null)).to.throw('Invalid targetVertex');
+    });
 });

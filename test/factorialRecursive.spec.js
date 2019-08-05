@@ -1,19 +1,19 @@
 import chai from 'chai';
-import factorialRec from '../src/factorialRec';
+import factorialRecursive from '../src/factorialRecursive';
 
 let expect = chai.expect;
 
-describe('Factorial recursive', () => {
+describe('factorialRecursive', () => {
 	it('calculates correct value for a number', () => {
 		let number = 5;
-		let result = factorialRec(number);
+		let result = factorialRecursive(number);
 
 		expect(result).to.equal(120);
 	});
 
 	it('calculates 1 for number 1', () => {
 		let number = 1;
-		let result = factorialRec(number);
+		let result = factorialRecursive(number);
 
 		expect(result).to.equal(1);
 	});
@@ -21,6 +21,6 @@ describe('Factorial recursive', () => {
 	it('throws for number 0', () => {
 		let number = 0;
 
-		expect(factorialRec.bind(null, number)).to.throw('Invalid number');
+		expect(factorialRecursive.bind(null, number)).to.throw('Invalid number');
 	});
 });

@@ -1,7 +1,11 @@
 'use strict'
 
-//sorts a list ascending using the 'Merge-Sort' algorithm
+//The function sorts a list ascending using the 'Merge-Sort' algorithm
 const mergeSort = (list) => {
+    if (!list) {
+        throw "Invalid list"
+    }
+
     if (list.length < 2) {
         return list;
     }

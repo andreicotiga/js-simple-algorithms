@@ -12,6 +12,14 @@
 //The 'targetVertex' argument is the name of the vertex (e.g. A)
 const bellmanFord = (graph, targetVertex) => {
 
+    if (!graph) {
+        throw "Invalid graph"
+    }
+
+    if (!targetVertex) {
+        throw "Invalid targetVertex"
+    }
+
     //construct the array of vertices (e.g. [A,B,C,D])
     let vertices = [targetVertex];
 

@@ -1,12 +1,12 @@
 'use strict'
 
 //The function reverses a string recursively
-const reverseStringRecursive = (stringToReverse) => {
-    if (!stringToReverse || stringToReverse.length <= 1) {
-        return stringToReverse;
+const reverseStringRecursive = (string) => {
+    if (!string || string.length <= 1) {
+        return string;
     }
 
-    return reverseStringRecursive(stringToReverse.substring(1)) + stringToReverse[0];
+    return reverseStringRecursive(string.substring(1)) + string[0];
 }
 
 export default reverseStringRecursive;

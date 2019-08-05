@@ -3,6 +3,10 @@
 //The function sorts a list ascending using the 'Quick Sort' algorithm
 const quickSort = (list) => {
 
+    if (!list) {
+        throw "Invalid list"
+    }
+
     if (list.length < 2) {
         return list;
     }

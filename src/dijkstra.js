@@ -1,7 +1,7 @@
 'use strict'
 
-//calculates the shortest path from a vertex 'targetVertex' to all other vertices in the graph using the 'Dijkstra' algorithm
-//the input graph must have below structure:  
+//The function computes the shortest path from a vertex (targetVertex) to all other vertices in the graph using the 'Dijkstra' algorithm
+//The 'graph' argument passed must have a structure similar to the following:
 //  [
 //     { from: "A", to: "C", cost: 6 },
 //     { from: "B", to: "A", cost: 3 },
@@ -9,8 +9,17 @@
 //     { from: "D", to: "C", cost: 3 },
 //     { from: "D", to: "A", cost: 10 },
 //  ]
-//the input 'targetVertex' is the name of the vertex (e.g. A)
+//The 'targetVertex' argument is the name of the vertex (e.g. A)
 const dijkstra = (graph, targetVertex) => {
+
+    if (!graph) {
+        throw "Invalid graph"
+    }
+
+    if (!targetVertex) {
+        throw "Invalid targetVertex"
+    }
+
     //construct the array of vertices (e.g. [A,B,C,D])
     let vertices = [targetVertex];
 
@@ -33,13 +42,21 @@ class MemoTable {
 
     constructor(vertices, targetVertex) {
         //the cost from the 'targetVertex' to itself is 0
-        let target = { name: targetVertex, cost: 0, visited: false };
+        let target = {
+            name: targetVertex,
+            cost: 0,
+            visited: false
+        };
 
         //the cost from the 'targetVertex' to other vertices is infinity
         this.table = [target];
         for (let vertex of vertices) {
             if (vertex !== target.name) {
-                this.table.push({ name: vertex, cost: Number.POSITIVE_INFINITY, visited: false });
+                this.table.push({
+                    name: vertex,
+                    cost: Number.POSITIVE_INFINITY,
+                    visited: false
+                });
             }
         }
     }
@@ -57,8 +74,7 @@ class MemoTable {
             return unvisited.reduce((prev, next) => {
                 return prev.cost < next.cost ? prev : next;
             });
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -83,8 +99,7 @@ class MemoTable {
 
         if (entry) {
             return entry.cost;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -102,7 +117,10 @@ class MemoTable {
     getCosts() {
         let results = [];
         for (var entry of this.table) {
-            results.push({ name: entry.name, cost: entry.cost });
+            results.push({
+                name: entry.name,
+                cost: entry.cost
+            });
         }
 
         return results;
@@ -112,7 +130,9 @@ class MemoTable {
 const process = (graph, memo, targetVertex) => {
 
     //get the outgoing edges from the 'targetVertex'
-    const edges = graph.filter(path => { return path.from === targetVertex });
+    const edges = graph.filter(path => {
+        return path.from === targetVertex
+    });
 
     //calculate the new cost for outgoing edges
     for (let edge of edges) {

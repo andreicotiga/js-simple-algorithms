@@ -1,6 +1,6 @@
 'use strict'
 
-//calculates the greatest common denominator of 2 numbers using Euclid's algorithm
+//The function computes the greatest common denominator of 2 numbers using Euclid's algorithm
 const greatestCommonDenominator = (a, b) => {
 
 	while (b !== 0) {
